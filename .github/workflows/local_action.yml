@@ -19,7 +19,7 @@ jobs:
         uses: ./ # Uses an action in the root directory
         with:
           secrets: ${{ toJSON(secrets) }}
-          secret_name_regex: TEST_*
+          secret_filter_regex: TEST_*
 
       - name: Show secret env var
         run: echo "TEST_REPOSITORY_SECRET = $TEST_REPOSITORY_SECRET"
