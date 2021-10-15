@@ -1,0 +1,13 @@
+name: 'Secrets to environment variables'
+description: 'Clones the specified repository secrets into environment variables'
+author: 'Chad Oftedahl'
+inputs:
+  secrets:
+    description: "json string of github repository secrets"
+    required: true
+  secret_name_regex:
+    description: "regex to choose which secrets to export to env vars"
+    required: false
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

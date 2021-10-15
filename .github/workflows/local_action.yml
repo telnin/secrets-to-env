@@ -1,0 +1,26 @@
+on: 
+  pull_request:
+  push:
+  
+jobs:
+  secrets_to_env_vars:
+    runs-on: ubuntu-latest
+
+    environment: dev
+
+    name: Secrets to env vars test
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Secrets to environment variables
+        uses: ./ # Uses an action in the root directory
+        id: hello
+        with:
+          secrets: ${{ toJSON(secrets) }}
+          secret_name_regex: TEST_*
+
+      - name: Show secret env var
+        run: echo "TEST_HELLO = $TEST_HELLO"

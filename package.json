@@ -1,0 +1,23 @@
+{
+  "name": "secrets-to-env",
+  "version": "1.0.0",
+  "description": "Copies the specified secrets from the repository into environment variables",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "ncc build src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Firenza/secrets-to-env.git"
+  },
+  "author": "Chad Oftedahl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Firenza/secrets-to-env/issues"
+  },
+  "homepage": "https://github.com/Firenza/secrets-to-env#readme",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0"
+  }
+}
