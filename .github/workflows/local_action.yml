@@ -1,7 +1,7 @@
 on: 
   pull_request:
   push:
-  
+
 jobs:
   secrets_to_env_vars:
     runs-on: ubuntu-latest
@@ -17,7 +17,6 @@ jobs:
 
       - name: Secrets to environment variables
         uses: ./ # Uses an action in the root directory
-        id: hello
         with:
           secrets: ${{ toJSON(secrets) }}
           secret_name_regex: TEST_*
