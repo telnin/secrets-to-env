@@ -4,7 +4,7 @@
   "description": "Copies the specified secrets from the repository into environment variables",
   "main": "src/index.js",
   "scripts": {
-    "build": "ncc build src/main.js"
+    "build": "ncc build index.js"
   },
   "repository": {
     "type": "git",
