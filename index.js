@@ -2,14 +2,14 @@ const core = require('@actions/core');
 
 try {
     const secrets = core.getInput('secrets');
-    const secretNameRegex = core.getInput('secret_name_regex');
+    const secretFilterRegex = core.getInput('secret_filter_regex');
 
     const parsedSecrets = JSON.parse(secrets);
 
     for(var attributeName in parsedSecrets){
-        const secretNameRegexDefined = secretNameRegex !== null && secretNameRegex !== undefined && secretNameRegex !== ''
+        const secretFilterRegexDefined = secretFilterRegex !== null && secretFilterRegex !== undefined && secretFilterRegex !== ''
 
-        if (!secretNameRegexDefined || secretNameRegexDefined && attributeName.match(secretNameRegex)){
+        if (!secretFilterRegexDefined || secretFilterRegexDefined && attributeName.match(secretFilterRegex)){
             console.log(`Exporting secret ${attributeName} as environment variable`);
             core.exportVariable(attributeName, parsedSecrets[attributeName]);
         }
