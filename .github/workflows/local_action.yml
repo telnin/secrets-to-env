@@ -22,4 +22,4 @@ jobs:
           secret_name_regex: TEST_*
 
       - name: Show secret env var
-        run: echo "TEST_HELLO = $TEST_HELLO"
+        run: echo "TEST_REPOSITORY_SECRET = $TEST_REPOSITORY_SECRET"
