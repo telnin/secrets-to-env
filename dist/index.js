@@ -1696,7 +1696,7 @@ try {
             const lowerCaseRegexDefined = lowerCaseRegex !== null && lowerCaseRegex !== undefined && lowerCaseRegex !== ''
             
             if(lowerCaseRegexDefined){
-                variableName = variableName.replace(lowerCaseRegexDefined, function(match){
+                variableName = variableName.replace(lowerCaseRegex, function(match){
                     return match.toLowerCase()
                 })
 
