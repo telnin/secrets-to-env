@@ -37,7 +37,7 @@ jobs:
         with:
           secrets: ${{ toJSON(secrets) }}
           secret_filter_regex: TEST_*
-          lower_case_regex: (?<=TEST_).*
+          env_var_name_lower_case_regex: (?<=TEST_).*
 
       - name: Show secret env var
         run: echo "TEST_repository_secret= $TEST_repository_secret"

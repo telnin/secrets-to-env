@@ -11,7 +11,7 @@ inputs:
   secret_filter_regex:
     description: "regex to choose which secrets to export to env vars"
     required: false
-  lower_case_regex:
+  env_var_name_lower_case_regex:
     description: "regex to select secret name text to make lower case"
     required: false
 runs:
