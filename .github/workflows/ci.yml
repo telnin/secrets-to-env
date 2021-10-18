@@ -1,0 +1,21 @@
+on: 
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    name: Run unit tests
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install packages
+        run: npm install
+      
+      - name: Run unit tests
+        run: npm run test
