@@ -15,9 +15,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: npm install
-        run: npm install
-
       - name: Secrets to environment variables
         uses: ./ # Uses an action in the root directory
         with:
