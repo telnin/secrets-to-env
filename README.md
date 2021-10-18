@@ -6,7 +6,7 @@ Copies the specified secrets from the repository into environment variables. Thi
 Only copy secrets with names starting with `TF_VAR_`
 
 ```yaml
-uses: Firenza/secrets-to-env@v1.0.0 
+uses: Firenza/secrets-to-env@v1.0.1
 with:
     secrets: ${{ toJSON(secrets) }}
     secret_filter_regex: TF_VAR_*
