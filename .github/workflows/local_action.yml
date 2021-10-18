@@ -15,7 +15,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: Secrets to environment variables
+      - name: All secrets to environment variables
+        uses: ./ # Uses an action in the root directory
+        with:
+          secrets: ${{ toJSON(secrets) }}
+
+      - name: Show secret env var
+        run: echo "TEST_REPOSITORY_SECRET = $TEST_REPOSITORY_SECRET"
+
+      - name: Filtered secrets to environment variables
         uses: ./ # Uses an action in the root directory
         with:
           secrets: ${{ toJSON(secrets) }}
@@ -23,3 +31,13 @@ jobs:
 
       - name: Show secret env var
         run: echo "TEST_REPOSITORY_SECRET = $TEST_REPOSITORY_SECRET"
+      
+      - name: Filtered secrets to with lower case transformation
+        uses: ./ # Uses an action in the root directory
+        with:
+          secrets: ${{ toJSON(secrets) }}
+          secret_filter_regex: TEST_*
+          lower_case_regex: (?<=TEST_).*
+
+      - name: Show secret env var
+        run: echo "TEST_repository_secret= $TEST_repository_secret"
