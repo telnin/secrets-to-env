@@ -4,7 +4,8 @@
   "description": "Copies the specified secrets from the repository into environment variables",
   "main": "index.js",
   "scripts": {
-    "build": "ncc build index.js"
+    "build": "ncc build main.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,5 +19,8 @@
   "homepage": "https://github.com/Firenza/secrets-to-env#readme",
   "dependencies": {
     "@actions/core": "^1.6.0"
+  },
+  "devDependencies": {
+    "jest": "^27.3.0"
   }
 }
