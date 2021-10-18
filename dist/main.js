@@ -1,6 +1,55 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ 963:
+/***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
+
+const core = __nccwpck_require__(24);
+
+function run(){
+    try {
+        const secrets = core.getInput('secrets');
+        const secretFilterRegexString = core.getInput('secret_filter_regex');
+        const lowerCaseRegexString = core.getInput('lower_case_regex');
+    
+        const parsedSecrets = JSON.parse(secrets);
+    
+        for(var attributeName in parsedSecrets){
+            const secretFilterRegexDefined = secretFilterRegexString !== null && secretFilterRegexString !== undefined && secretFilterRegexString !== ''
+    
+            if (!secretFilterRegexDefined || secretFilterRegexDefined && attributeName.match(new RegExp(secretFilterRegexString))){
+                
+                variableName = attributeName;
+                variableValue = parsedSecrets[attributeName];
+    
+                const lowerCaseRegexStringDefined = lowerCaseRegexString !== null && lowerCaseRegexString !== undefined && lowerCaseRegexString !== ''
+                
+                if(lowerCaseRegexStringDefined){
+       
+                    variableName = variableName.replace(new RegExp(lowerCaseRegexString), function(match){
+                        return match.toLowerCase()
+                    })
+    
+                    console.log(`Exporting secret ${attributeName} as environment variable ${variableName}`);
+                }
+                else{
+                    console.log(`Exporting secret ${attributeName} as environment variable`);
+                }
+                
+                core.exportVariable(variableName, variableValue);
+            }
+        }
+    } catch (error) {
+        core.setFailed(error.message);
+    }
+}
+
+module.exports = run;
+
+run();
+
+/***/ }),
+
 /***/ 350:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -1673,47 +1722,12 @@ module.exports = require("util");
 /******/ 	if (typeof __nccwpck_require__ !== 'undefined') __nccwpck_require__.ab = __dirname + "/";
 /******/ 	
 /************************************************************************/
-var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
-(() => {
-const core = __nccwpck_require__(24);
-
-try {
-    const secrets = core.getInput('secrets');
-    const secretFilterRegex = core.getInput('secret_filter_regex');
-    const lowerCaseRegex = core.getInput('lower_case_regex');
-
-    const parsedSecrets = JSON.parse(secrets);
-
-    for(var attributeName in parsedSecrets){
-        const secretFilterRegexDefined = secretFilterRegex !== null && secretFilterRegex !== undefined && secretFilterRegex !== ''
-
-        if (!secretFilterRegexDefined || secretFilterRegexDefined && attributeName.match(secretFilterRegex)){
-            
-            variableName = attributeName;
-            variableValue = parsedSecrets[attributeName];
-
-            const lowerCaseRegexDefined = lowerCaseRegex !== null && lowerCaseRegex !== undefined && lowerCaseRegex !== ''
-            
-            if(lowerCaseRegexDefined){
-                variableName = variableName.replace(lowerCaseRegex, function(match){
-                    return match.toLowerCase()
-                })
-
-                console.log(`Exporting secret ${attributeName} as environment variable ${variableName}`);
-            }
-            else{
-                console.log(`Exporting secret ${attributeName} as environment variable`);
-            }
-            
-            core.exportVariable(variableName, variableValue);
-        }
-    }
-} catch (error) {
-    core.setFailed(error.message);
-}
-})();
-
-module.exports = __webpack_exports__;
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module is referenced by other modules so it can't be inlined
+/******/ 	var __webpack_exports__ = __nccwpck_require__(963);
+/******/ 	module.exports = __webpack_exports__;
+/******/ 	
 /******/ })()
 ;
