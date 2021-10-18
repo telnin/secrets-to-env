@@ -28,5 +28,5 @@ uses: Firenza/secrets-to-env@v1.1.0
 with:
     secrets: ${{ toJSON(secrets) }}
     secret_filter_regex: TF_VAR_*
-    env_var_name_lower_case_regex: (?<=TEST_).*
+    env_var_name_lower_case_regex: (?<=TF_VAR_).*
 ```
