@@ -15,7 +15,7 @@ with:
 Copy all secrets
 
 ```yaml
-uses: Firenza/secrets-to-env@v1 
+uses: Firenza/secrets-to-env@v1.0.1
 with:
     secrets: ${{ toJSON(secrets) }}
 ```
