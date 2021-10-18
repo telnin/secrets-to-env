@@ -4,7 +4,7 @@ function run(){
     try {
         const secrets = core.getInput('secrets');
         const secretFilterRegexString = core.getInput('secret_filter_regex');
-        const lowerCaseRegexString = core.getInput('lower_case_regex');
+        const lowerCaseRegexString = core.getInput('env_var_name_lower_case_regex');
     
         const parsedSecrets = JSON.parse(secrets);
     

@@ -16,7 +16,7 @@ test('lower case regex works', () => {
         else if (key === "secret_filter_regex"){
             return undefined;
         }
-        else if (key === "lower_case_regex"){
+        else if (key === "env_var_name_lower_case_regex"){
             return "(?<=TEST_).*";
         }
     })
@@ -43,7 +43,7 @@ test('secret filter works', () => {
         else if (key === "secret_filter_regex"){
             return "TEST_.*";
         }
-        else if (key === "lower_case_regex"){
+        else if (key === "env_var_name_lower_case_regex"){
             return undefined;
         }
     })
@@ -69,7 +69,7 @@ test('all secrets processed with no filter', () => {
         else if (key === "secret_filter_regex"){
             return undefined;
         }
-        else if (key === "lower_case_regex"){
+        else if (key === "env_var_name_lower_case_regex"){
             return undefined;
         }
     })
