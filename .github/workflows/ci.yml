@@ -12,10 +12,15 @@ jobs:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
 
       - name: Install packages
-        run: npm install
+        run: npm ci
       
       - name: Run unit tests
         run: npm run test
