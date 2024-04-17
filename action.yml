@@ -15,5 +15,5 @@ inputs:
     description: "regex to select secret name text to make lower case"
     required: false
 runs:
-  using: 'node16'
+  using: 'node20'
   main: 'dist/index.js'
