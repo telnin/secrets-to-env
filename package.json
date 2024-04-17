@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Copies the specified secrets from the repository into environment variables",
   "main": "index.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "scripts": {
     "build": "ncc build main.js",
     "test": "jest"

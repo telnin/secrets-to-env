@@ -6,7 +6,7 @@ Copies the specified secrets from the repository into environment variables. Thi
 Copy all secrets
 
 ```yaml
-uses: Firenza/secrets-to-env@v1.2.0
+uses: Firenza/secrets-to-env@v1.3.0
 with:
     secrets: ${{ toJSON(secrets) }}
 ```
@@ -14,7 +14,7 @@ with:
 Only copy secrets with names starting with `TF_VAR_`
 
 ```yaml
-uses: Firenza/secrets-to-env@v1.2.0
+uses: Firenza/secrets-to-env@v1.3.0
 
 with:
     secrets: ${{ toJSON(secrets) }}
@@ -24,7 +24,7 @@ with:
 Only copy secrets with names starting with `TF_VAR_` and have the copied environment variable names have everything after `TF_VAR_` be lowercase.
 
 ```yaml
-uses: Firenza/secrets-to-env@v1.2.0
+uses: Firenza/secrets-to-env@v1.3.0
 with:
     secrets: ${{ toJSON(secrets) }}
     secret_filter_regex: TF_VAR_*
