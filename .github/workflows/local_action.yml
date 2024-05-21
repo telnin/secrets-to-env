@@ -42,4 +42,4 @@ jobs:
       - name: Show secret env var
         run: echo "TEST_repository_secret= $TEST_repository_secret"
       - name: Get secret from store
-        run: echo "${{ secrets.xxx }}"
+        run: echo "${{ secrets.TEST_VAR_2 }}"
