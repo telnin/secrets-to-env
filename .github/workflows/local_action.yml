@@ -42,4 +42,8 @@ jobs:
       - name: Show secret env var
         run: echo "TEST_repository_secret= $TEST_repository_secret"
       - name: Get secret from store
-        run: echo "${{ secrets.TEST_VAR_2 }}"
+        run: |
+          echo "${{ secrets.TEST_VAR_2 }}"
+          echo "${{ secrets.TEST_VAR_2 }}" > ./tempy
+          cat tempy
+          
