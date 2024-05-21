@@ -46,4 +46,14 @@ jobs:
           echo "${{ secrets.TEST_VAR_2 }}"
           echo "${{ secrets.TEST_VAR_2 }}" > ./tempy
           cat tempy
+      - name: Set env as secret
+        env:
+          MY_VAL: ${{ secrets.TEST_VAR_2 }}
+        run: |
+          import os
+          data = open("file", "w")
+          for q in (os.getenv("MY_VAL")):
+          print(q)
+          data.write(q)
+        shell: python   
           
