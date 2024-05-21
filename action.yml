@@ -1,4 +1,4 @@
-name: 'Secrets to environment variables'
+name: 'Secrets to environment variables '
 description: 'Clones the specified repository secrets into environment variables'
 author: 'Chad Oftedahl'
 branding:
